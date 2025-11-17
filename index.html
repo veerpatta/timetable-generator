@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veer Patta School Timetable Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Header -->
+    <header class="app-header">
+        <h1>🎓 Veer Patta School Timetable Generator</h1>
+        <p class="subtitle">Intelligent, Constraint-Based Timetable Scheduling System</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Control Panel -->
+        <section class="control-panel">
+            <div class="card">
+                <h2>Generate Timetable</h2>
+                <p class="info-text">
+                    Click the button below to generate a complete school timetable based on configured
+                    classes, teachers, subjects, and constraints.
+                </p>
+                <button id="generateBtn" class="btn-generate">
+                    ⚡ Generate Timetable
+                </button>
+                <div id="statusDisplay" class="status-display">
+                    <p>Ready to generate. Using sample data from <code>src/data.js</code></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- View Selector -->
+        <section class="view-selector" id="viewSelector" style="display: none;">
+            <div class="tabs">
+                <button class="tab-btn active" data-view="class">
+                    📚 View by Class
+                </button>
+                <button class="tab-btn" data-view="teacher">
+                    👨‍🏫 View by Teacher
+                </button>
+            </div>
+        </section>
+
+        <!-- Timetable Display -->
+        <section class="timetable-container">
+            <!-- Class View -->
+            <div id="classView" class="view-content active">
+                <p class="placeholder">Generate a timetable to see class-wise schedules here.</p>
+            </div>
+
+            <!-- Teacher View -->
+            <div id="teacherView" class="view-content">
+                <p class="placeholder">Generate a timetable to see teacher-wise schedules here.</p>
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <footer class="app-footer">
+            <p>
+                💡 <strong>Tip:</strong> To customize school data (classes, teachers, subjects),
+                edit <code>src/data.js</code>. See <code>README.md</code> for detailed instructions.
+            </p>
+            <p class="print-hint">
+                🖨️ Use your browser's Print function (Ctrl+P / Cmd+P) to print or save as PDF.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Load JavaScript Modules -->
+    <!-- Note: Load in order - data first, then constraints, engine, ui, and finally main -->
+    <script src="src/data.js"></script>
+    <script src="src/constraints.js"></script>
+    <script src="src/engine.js"></script>
+    <script src="src/ui.js"></script>
+    <script src="src/main.js"></script>
+</body>
+</html>

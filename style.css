@@ -1,0 +1,436 @@
+/* ====================================
+   Veer Patta School Timetable Generator
+   Main Stylesheet
+   ==================================== */
+
+/* CSS Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px 10px;
+}
+
+code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.app-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.95;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Card Component */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.info-text {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+/* Control Panel */
+.control-panel {
+    margin-bottom: 30px;
+}
+
+/* Generate Button */
+.btn-generate {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    font-weight: 600;
+}
+
+.btn-generate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.btn-generate:active {
+    transform: translateY(0);
+}
+
+.btn-generate:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Status Display */
+.status-display {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    border-radius: 4px;
+}
+
+.status-display p {
+    margin: 0;
+    font-size: 1em;
+}
+
+.status-display.success {
+    border-left-color: #28a745;
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-display.error {
+    border-left-color: #dc3545;
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-display.loading {
+    border-left-color: #ffc107;
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* View Selector Tabs */
+.view-selector {
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    background: #f8f9fa;
+    color: #666;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.tab-btn:hover {
+    background: #e9ecef;
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+/* Timetable Container */
+.timetable-container {
+    min-height: 400px;
+}
+
+.view-content {
+    display: none;
+}
+
+.view-content.active {
+    display: block;
+}
+
+.placeholder {
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+/* Timetable Styles */
+.timetable-section {
+    margin-bottom: 30px;
+}
+
+.timetable-header {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timetable-header h3 {
+    color: #667eea;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.timetable-wrapper {
+    background: white;
+    padding: 20px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+/* Table Styles */
+.timetable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 0.95em;
+}
+
+.timetable th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 8px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #5568d3;
+}
+
+.timetable td {
+    padding: 12px 8px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+    vertical-align: middle;
+    min-width: 120px;
+}
+
+.timetable tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.timetable tbody tr:hover {
+    background: #e9ecef;
+}
+
+.day-header {
+    font-weight: 600;
+    background: #f1f3f5;
+    color: #495057;
+    text-align: left;
+    padding-left: 15px;
+}
+
+/* Period Cell Content */
+.period-cell {
+    line-height: 1.4;
+}
+
+.subject-name {
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.teacher-name,
+.class-name {
+    font-size: 0.85em;
+    color: #666;
+    display: block;
+}
+
+.empty-cell {
+    color: #adb5bd;
+    font-style: italic;
+}
+
+/* Footer */
+.app-footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.app-footer p {
+    margin: 10px 0;
+}
+
+.print-hint {
+    font-size: 0.95em;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .app-header h1 {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .timetable {
+        font-size: 0.85em;
+    }
+
+    .timetable th,
+    .timetable td {
+        padding: 8px 5px;
+        min-width: 100px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .app-header {
+        background: white;
+        color: #333;
+        border: 2px solid #333;
+        page-break-after: avoid;
+    }
+
+    .control-panel,
+    .view-selector,
+    .app-footer,
+    .btn-generate,
+    .status-display {
+        display: none;
+    }
+
+    .timetable-container {
+        background: white;
+    }
+
+    .view-content {
+        display: block;
+    }
+
+    .timetable-section {
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+    }
+
+    .timetable-header {
+        background: #f8f9fa;
+        color: #333;
+        border: 2px solid #333;
+    }
+
+    .timetable-wrapper {
+        box-shadow: none;
+        border: 1px solid #333;
+    }
+
+    .timetable th {
+        background: #e9ecef;
+        color: #333;
+        border: 1px solid #333;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .timetable td {
+        border: 1px solid #333;
+    }
+
+    .timetable tbody tr:nth-child(even) {
+        background: #f8f9fa;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Ensure proper page breaks */
+    h3 {
+        page-break-after: avoid;
+    }
+
+    table {
+        page-break-inside: auto;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
