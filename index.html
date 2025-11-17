@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veer Patta School Timetable Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎓 Veer Patta School Timetable Generator</h1>
+            <p class="subtitle">Constraint-based automatic timetable generation for schools</p>
+        </header>
+
+        <!-- Control Panel -->
+        <section class="control-panel">
+            <div class="card">
+                <h2>Generate Timetable</h2>
+                <p class="info-text">
+                    This tool will automatically generate timetables for all classes and teachers
+                    based on the configured constraints and requirements.
+                </p>
+                <button id="generateBtn" class="btn btn-primary">
+                    🔄 Generate Timetable
+                </button>
+                <div id="status" class="status-message">
+                    Ready to generate timetable. Click "Generate Timetable" to start.
+                </div>
+            </div>
+        </section>
+
+        <!-- View Controls -->
+        <section class="view-controls">
+            <div class="button-group">
+                <button id="viewClassBtn" class="btn btn-view active">
+                    📚 View by Class
+                </button>
+                <button id="viewTeacherBtn" class="btn btn-view">
+                    👨‍🏫 View by Teacher
+                </button>
+                <button id="printBtn" class="btn btn-secondary">
+                    🖨️ Print
+                </button>
+            </div>
+        </section>
+
+        <!-- Timetable Views -->
+        <section class="timetable-container">
+            <div id="classView" class="view-section">
+                <!-- Class timetables will be rendered here -->
+            </div>
+            <div id="teacherView" class="view-section" style="display: none;">
+                <!-- Teacher timetables will be rendered here -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                Built with ❤️ for Veer Patta School | 
+                <a href="https://github.com/veerpatta/timetable-generator" target="_blank">GitHub</a> |
+                Powered by vanilla JavaScript
+            </p>
+            <p class="small-text">
+                To customize teachers, subjects, and classes, edit <code>src/data.js</code>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Load JavaScript modules -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
